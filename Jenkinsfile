@@ -52,7 +52,7 @@ pipeline {
 
                     /* sh 'ssh ubuntu@ec2-3-14-144-134.us-east-2.compute.amazonaws.com mkdir -p /saul/temp_deploy/' */
 
-                    sh 'scp -r target/*.jar ubuntu@ec2-3-14-144-134.us-east-2.compute.amazonaws.com:/home/ubuntu/saul/temp_deploy/'
+                sh 'scp -r target/*.jar ubuntu@ec2-3-14-144-134.us-east-2.compute.amazonaws.com:/home/ubuntu/saul/temp_deploy/'
                 // To run Maven on a Windows agent, use
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
                 }
@@ -65,6 +65,7 @@ pipeline {
                 //junit '**/target/surefire-reports/TEST-*.xml'
                 //archiveArtifacts 'target/*.jar'
                 archiveArtifacts(artifacts: 'target/*.jar', excludes: '**/maven-wrapper.jar')
+                emailext(body: 'Se contruyó satisfactoriamente', subject: 'EXITO!', to: 'saul.avila.dev@outlook.com', attachmentsPattern: 'target/*.jar')
                 echo 'Success'
         }
     }
