@@ -65,7 +65,7 @@ pipeline {
                 //junit '**/target/surefire-reports/TEST-*.xml'
                 //archiveArtifacts 'target/*.jar'
                 archiveArtifacts(artifacts: 'target/*.jar', excludes: '**/maven-wrapper.jar')
-                emailext(body: 'Se contruyó satisfactoriamente', subject: 'EXITO!', to: 'saul.avila.dev@outlook.com', attachmentsPattern: 'target/*.jar')
+                emailext(body: 'Se contruyó satisfactoriamente', subject: 'EXITO!', to: 'saul.avila.dev@outlook.com', attachmentsPattern: 'target/*.jar.original')
                 echo 'Success'
         }
     }
