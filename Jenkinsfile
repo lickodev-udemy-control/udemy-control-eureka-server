@@ -47,8 +47,8 @@ pipeline {
                 //sh "mvn -Dmaven.test.failure.ignore=true clean package"
                 //echo 'Hello'
 
-                    //withMaven(maven: '')
-                     sh 'ssh ubuntu@ec2-3-14-144-134.us-east-2.compute.amazonaws.com rm -rf /saul/temp_deploy/'
+                //withMaven(maven: '')
+                sh 'ssh ubuntu@ec2-3-14-144-134.us-east-2.compute.amazonaws.com rm -rf /saul/temp_deploy/'
 
                     /* sh 'ssh ubuntu@ec2-3-14-144-134.us-east-2.compute.amazonaws.com mkdir -p /saul/temp_deploy/' */
 
@@ -59,14 +59,14 @@ pipeline {
             }
     }
     post {
-            // If Maven was able to run the tests, even if some of the test
-            // failed, record the test results and archive the jar file.
+        // If Maven was able to run the tests, even if some of the test
+        // failed, record the test results and archive the jar file.
         success {
-                    //junit '**/target/surefire-reports/TEST-*.xml'
-                    //archiveArtifacts 'target/*.jar'
+                //junit '**/target/surefire-reports/TEST-*.xml'
+                //archiveArtifacts 'target/*.jar'
                 archiveArtifacts(artifacts: 'target/*.jar', excludes: '**/maven-wrapper.jar')
                 echo 'Success'
-            }
         }
+    }
 }
 
