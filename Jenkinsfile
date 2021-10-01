@@ -48,9 +48,9 @@ pipeline {
                 //echo 'Hello'
 
                     //withMaven(maven: '')
-                    sh 'ssh ubuntu@ec2-3-14-144-134.us-east-2.compute.amazonaws.com rm -rf /saul/temp_deploy/'
+                     sh 'ssh ubuntu@ec2-3-14-144-134.us-east-2.compute.amazonaws.com rm -rf /saul/temp_deploy/'
 
-                    sh 'ssh ubuntu@ec2-3-14-144-134.us-east-2.compute.amazonaws.com mkdir -p /saul/temp_deploy/'
+                    /* sh 'ssh ubuntu@ec2-3-14-144-134.us-east-2.compute.amazonaws.com mkdir -p /saul/temp_deploy/' */
 
                     sh 'scp -r target/*.jar ubuntu@ec2-3-14-144-134.us-east-2.compute.amazonaws.com:/saul/temp_deploy/'
                 // To run Maven on a Windows agent, use
