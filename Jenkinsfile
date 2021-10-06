@@ -45,14 +45,14 @@ pipeline {
 
                 // Run Maven on a Unix agent.
                 //sh "mvn -Dmaven.test.failure.ignore=true clean package"
-                //echo 'Hello'
+                echo 'Hello, :3'
 
                 //withMaven(maven: '')
-                sh 'ssh ubuntu@ec2-3-14-144-134.us-east-2.compute.amazonaws.com rm -rf /saul/temp_deploy/'
+                /* sh 'ssh ubuntu@ec2-3-14-144-134.us-east-2.compute.amazonaws.com rm -rf /saul/temp_deploy/' */
 
                     /* sh 'ssh ubuntu@ec2-3-14-144-134.us-east-2.compute.amazonaws.com mkdir -p /saul/temp_deploy/' */
 
-                sh 'scp -r target/*.jar ubuntu@ec2-3-14-144-134.us-east-2.compute.amazonaws.com:/home/ubuntu/saul/temp_deploy/'
+                /* sh 'scp -r target/*.jar ubuntu@ec2-3-14-144-134.us-east-2.compute.amazonaws.com:/home/ubuntu/saul/temp_deploy/' */
                 // To run Maven on a Windows agent, use
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
                 }
